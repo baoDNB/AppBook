@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lnKhungDangKy"
+        android:layout_marginBottom="-1dp"
+        android:padding="@dimen/size10dp"
+        android:text="@string/dangky"
+        android:textColor="@color/white"
+        android:textSize="@dimen/size30sp"
+        android:textStyle="bold">
+
+    </TextView>
+
+    <LinearLayout
+        android:id="@+id/lnKhungDangKy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size10dp"
+            android:background="@color/white"
+            android:baselineAligned="false"
+            android:hint="@string/ten"
+            android:padding="@dimen/size10dp"
+            android:textColorHint="@color/black"
+            android:drawableLeft="@drawable/baseline_person_24"
+            android:drawablePadding="@dimen/size10dp"
+            >
+
+        </EditText>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size10dp"
+            android:background="@color/white"
+            android:baselineAligned="false"
+            android:hint="@string/email"
+            android:padding="@dimen/size10dp"
+            android:textColorHint="@color/black"
+            android:drawableLeft="@drawable/baseline_person_24"
+            android:drawablePadding="@dimen/size10dp"
+            >
+
+        </EditText>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size10dp"
+            android:background="@color/white"
+            android:baselineAligned="false"
+            android:hint="@string/password"
+            android:padding="@dimen/size10dp"
+            android:password="true"
+            android:textColorHint="@color/black"
+            android:drawableLeft="@drawable/baseline_https_24"
+            android:drawablePadding="@dimen/size10dp">
+
+        </EditText>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size10dp"
+            android:background="@color/white"
+            android:hint="@string/cfpassword"
+            android:padding="@dimen/size10dp"
+            android:password="true"
+            android:textColorHint="@color/black"
+            android:drawableLeft="@drawable/baseline_https_24"
+            android:drawablePadding="@dimen/size10dp">
+
+        </EditText>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AppBookCase</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="dangky">Đăng ký </string>
+    <string name="dangnhap">Đăng nhập </string>
+    <string name="ten">Tên</string>
+    <string name="cfpassword">Nhập lại mật khẩu</string>
+    <string name="forgotpass">Quên Mật Khẩu</string>
+
+</resources>
