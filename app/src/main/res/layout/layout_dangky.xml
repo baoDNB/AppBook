@@ -11,12 +11,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/lnKhungDangKy"
-        android:layout_marginBottom="-1dp"
+        android:layout_marginBottom="10dp"
         android:padding="@dimen/size10dp"
         android:text="@string/dangky"
         android:textColor="@color/white"
         android:textSize="@dimen/size30sp"
-        android:textStyle="bold">
+        android:textStyle="bold"
+        android:layout_centerInParent="true">
 
     </TextView>
 
@@ -25,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_marginHorizontal="@dimen/size10dp"
         android:orientation="vertical">
 
         <EditText
@@ -33,54 +35,109 @@
             android:layout_margin="@dimen/size10dp"
             android:background="@color/white"
             android:baselineAligned="false"
+            android:drawableLeft="@drawable/baseline_person_24"
+            android:drawablePadding="@dimen/size10dp"
             android:hint="@string/ten"
             android:padding="@dimen/size10dp"
-            android:textColorHint="@color/black"
-            android:drawableLeft="@drawable/baseline_person_24"
-            android:drawablePadding="@dimen/size10dp"
-            >
+            android:textColorHint="@color/black">
 
         </EditText>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/size10dp"
             android:background="@color/white"
             android:baselineAligned="false"
+            android:drawableLeft="@drawable/baseline_person_24"
+            android:drawablePadding="@dimen/size10dp"
             android:hint="@string/email"
             android:padding="@dimen/size10dp"
-            android:textColorHint="@color/black"
-            android:drawableLeft="@drawable/baseline_person_24"
-            android:drawablePadding="@dimen/size10dp"
-            >
+            android:textColorHint="@color/black">
 
         </EditText>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/size10dp"
             android:background="@color/white"
             android:baselineAligned="false"
+            android:drawableLeft="@drawable/baseline_https_24"
+            android:drawablePadding="@dimen/size10dp"
             android:hint="@string/password"
             android:padding="@dimen/size10dp"
             android:password="true"
-            android:textColorHint="@color/black"
-            android:drawableLeft="@drawable/baseline_https_24"
-            android:drawablePadding="@dimen/size10dp">
+            android:textColorHint="@color/black">
 
         </EditText>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/size10dp"
             android:background="@color/white"
+            android:drawableLeft="@drawable/baseline_https_24"
+            android:drawablePadding="@dimen/size10dp"
             android:hint="@string/cfpassword"
             android:padding="@dimen/size10dp"
             android:password="true"
-            android:textColorHint="@color/black"
-            android:drawableLeft="@drawable/baseline_https_24"
-            android:drawablePadding="@dimen/size10dp">
+            android:textColorHint="@color/black">
 
         </EditText>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/size10dp"
+            android:text="Tôi đồng ý với các điều khoản sử dụng"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@id/loginbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dangnhap" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đã có tài khoản"
+            android:textColor="@color/white"
+            android:padding="@dimen/size10dp"
+            android:gravity="center"
+
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/size10dp"
+            >
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/fb"
+                android:layout_margin="@dimen/size10dp"
+                />
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/google"
+                android:layout_margin="@dimen/size10dp"
+
+                />
+
+        </LinearLayout>
     </LinearLayout>
+
+
+
+
+
+
+
 </RelativeLayout>

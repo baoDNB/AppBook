@@ -7,6 +7,8 @@
     tools:context=".MainActivity"
     android:background="@drawable/background">
 
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,7 +31,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/size10dp">
 
         <EditText
             android:layout_width="match_parent"
@@ -52,10 +55,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/size10dp"
-            android:layout_marginStart="@dimen/size10dp"
-            android:layout_marginTop="@dimen/size10dp"
-            android:layout_marginEnd="@dimen/size10dp"
-            android:layout_marginBottom="@dimen/size10dp"
             android:background="@color/white"
             android:drawableLeft="@drawable/baseline_https_24"
             android:drawablePadding="@dimen/size10dp"
@@ -108,18 +107,20 @@
             android:orientation="horizontal"
             android:layout_marginTop="@dimen/size10dp"
             >
-            <ImageButton
+            <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:src="@drawable/fb"
-                android:scaleType="fitCenter"
+                android:layout_margin="@dimen/size10dp"
                  />
 
-            <ImageButton
+            <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:src="@drawable/google"
-                android:scaleType="fitXY"/>
+                android:layout_margin="@dimen/size10dp"
+
+                />
 
         </LinearLayout>
     </LinearLayout>
