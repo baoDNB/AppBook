@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".activity.LoginActivity"
     android:background="@drawable/background">
 
 
@@ -37,6 +37,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/dn_email"
             android:layout_margin="@dimen/size10dp"
             android:background="@color/white"
             android:baselineAligned="false"
@@ -51,7 +52,7 @@
 
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/dn_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/size10dp"
@@ -62,9 +63,10 @@
             android:padding="@dimen/size10dp"
             android:password="true"
             android:textColor="@color/black"
-            android:textColorHint="@color/black">
+            android:textColorHint="@color/black"
+            android:drawableRight="@drawable/hide_password"/>
 
-        </EditText>
+
 
         <Button
             android:id="@+id/loginbutton"
