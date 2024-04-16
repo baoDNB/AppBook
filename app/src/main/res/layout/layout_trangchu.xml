@@ -342,8 +342,8 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/size50dp"
+                android:layout_height="@dimen/size50dp"
                 app:srcCompat="@drawable/ic_launcher_background">
 
             </ImageButton>
