@@ -7,5 +7,9 @@
     <string name="ten">Tên</string>
     <string name="cfpassword">Nhập lại mật khẩu</string>
     <string name="forgotpass">Quên Mật Khẩu</string>
+    <string name="Home">Home</string>
+    <string name="favourite">ome</string>
+    <string name="profile">Hoe</string>
+    <string name="history">History</string>
 
 </resources>
