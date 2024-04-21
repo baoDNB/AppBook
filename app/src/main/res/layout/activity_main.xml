@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/iconIv"
+        android:src="@drawable/google"
+        android:layout_width="@dimen/size225dp"
+        android:layout_height="@dimen/size225dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/size20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iconIv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/size20dp"
+        android:text="Welcom to ..."
+        android:textColor="@color/white"
+        android:textSize="@dimen/size20dp"/>
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/skipBtn"
+        android:layout_marginBottom="@dimen/size20dp"
+        android:background="@drawable/shape_button01"
+        android:text="Login" />
+
+    <Button
+        android:id="@+id/skipBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shape_button02"
+        android:text="Continue Without Login"/>
+
+</RelativeLayout>

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="size10dp">10dp</dimen>
-    <dimen name="size30sp">30sp</dimen>
+    <dimen name="size18dp">18dp</dimen>
+    <dimen name="size20dp">20dp</dimen>
+    <dimen name="size30dp">30dp</dimen>
+    <dimen name="size40dp">40dp</dimen>
     <dimen name="size50dp">50dp</dimen>
+    <dimen name="size118dp">118dp</dimen>
+    <dimen name="size180dp">180dp</dimen>
+    <dimen name="size225dp">225dp</dimen>
+    <dimen name="size250dp">250dp</dimen>
+    <dimen name="size30sp">30sp</dimen>
+
 </resources>
