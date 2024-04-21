@@ -7,6 +7,7 @@
     <string name="ten">Tên</string>
     <string name="cfpassword">Nhập lại mật khẩu</string>
     <string name="forgotpass">Quên Mật Khẩu</string>
-    <string name="TKM">Tài khoản mới? Đăng kí</string>
+    <string name="TKM">Tài khoản mới? <b>Đăng kí</b> </string>
+
 
 </resources>

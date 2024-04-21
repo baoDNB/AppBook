@@ -9,7 +9,16 @@
         android:roundIcon="@drawable/fb"
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
-        <activity android:name=".activity.MainActivity"/>
+        <activity
+            android:name=".activity.DashboardUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:exported="false" />
+        <activity android:name=".activity.MainActivity" />
         <activity
             android:name=".activity.SplashActivity"
             android:exported="true">
