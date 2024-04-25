@@ -9,14 +9,18 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/size250dp">
+
         <ImageButton
             android:id="@+id/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrow_back_"
+            android:layout_marginStart="@dimen/size20dp"
+            android:layout_marginTop="@dimen/size20dp"
+            android:layout_marginEnd="@dimen/size20dp"
+            android:layout_marginBottom="@dimen/size20dp"
             android:background="@color/trong"
-            android:layout_margin="@dimen/size20dp"
-            android:padding="@dimen/size10dp"/>
+            android:padding="@dimen/size10dp"
+            android:src="@drawable/ic_arrow_back_" />
 
 
         <TextView
@@ -50,7 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/shape_edittext01"
-                    android:drawableStart="@drawable/ic_email_gray"
+                    android:drawableStart="@drawable/ic_person_gray"
                     android:drawablePadding="@dimen/size18dp"
                     android:hint="@string/ten"
                     android:inputType="textPersonName|textCapWords"

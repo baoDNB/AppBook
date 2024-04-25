@@ -45,7 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
         binding.backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                onBackPressed();
             }
         });
         binding.registerBtn.setOnClickListener(new View.OnClickListener() {
