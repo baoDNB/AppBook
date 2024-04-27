@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 
 
@@ -36,6 +38,31 @@ public class DashboardAdminActivity extends AppCompatActivity {
         firebaseAuth=FirebaseAuth.getInstance();
         checkUser();
         loadCategories();
+
+
+        //search
+        binding.searchEt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+                    adapterCategory.getFilter().filter(s);
+                }
+                catch (Exception e){
+
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         binding.logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +77,12 @@ public class DashboardAdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(DashboardAdminActivity.this, CategoryAddActivity.class));
+            }
+        });
+        binding.addPdfFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardAdminActivity.this,PdfAddActivity.class));
             }
         });
     }
@@ -82,6 +115,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 // Xử lý khi có lỗi xảy ra
+
             }
         });
     }

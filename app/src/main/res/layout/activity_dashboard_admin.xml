@@ -7,7 +7,7 @@
     tools:context=".activity.DashboardAdminActivity"
     android:background="@drawable/background">
     <RelativeLayout
-        android:id="@+id/toolbarRL"
+        android:id= "@+id/toolbarRL"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:background="@color/black">
@@ -42,12 +42,26 @@
             android:background="@color/trong"/>
     </RelativeLayout>
 
+    <EditText
+        android:id="@+id/searchEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbarRL"
+        android:layout_marginTop="@dimen/size10dp"
+        android:hint="Search"
+        android:textColorHint="@color/gray02"
+        android:layout_marginStart="@dimen/size10dp"
+        android:layout_marginEnd="@dimen/size10dp"
+        android:background="@color/white"
+        android:padding="@dimen/size10dp"
+        android:drawableStart="@drawable/ic_search"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categoriesRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottomLl"
-        android:layout_below="@+id/toolbarRL"
+        android:layout_below="@+id/searchEt"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
