@@ -54,7 +54,7 @@
         android:layout_marginEnd="@dimen/size10dp"
         android:background="@color/white"
         android:padding="@dimen/size10dp"
-        android:drawableStart="@drawable/ic_search"/>
+        android:drawableStart="@drawable/ic_search_gray"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categoriesRv"
