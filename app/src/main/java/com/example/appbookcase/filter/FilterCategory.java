@@ -1,4 +1,4 @@
-package com.example.appbookcase;
+package com.example.appbookcase.filter;
 
 import android.widget.Filter;
 
