@@ -48,6 +48,7 @@ android {
 dependencies {
     implementation ("androidx.core:core:1.9.0")
     implementation ("com.android.support:support-compat:1.0.0")
+    implementation("androidx.activity:activity:1.9.0")
 
 
     testImplementation("junit:junit:4.13.2")
