@@ -2,10 +2,14 @@ package com.example.appbookcase.adapter;
 
 import static com.example.appbookcase.Constants.MAX_BYTES_PDF;
 
+<<<<<<< HEAD
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+=======
+import android.content.Context;
+>>>>>>> cad73f4138b18b2932d8e0b6c8609a7256712df2
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +19,10 @@ import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+<<<<<<< HEAD
 import android.widget.Toast;
+=======
+>>>>>>> cad73f4138b18b2932d8e0b6c8609a7256712df2
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,17 +55,23 @@ public class AdapterPdfAdmin extends RecyclerView.Adapter<AdapterPdfAdmin.Holder
     private RowPdfAdminBinding binding;
 
     private FilterPdfAdmin filter;
+<<<<<<< HEAD
     private ProgressDialog progressDialog;
+=======
+>>>>>>> cad73f4138b18b2932d8e0b6c8609a7256712df2
     private static final  String TAG ="PDF_ADAPTER_TAG";
 
     public AdapterPdfAdmin(Context context, ArrayList<ModelPdf> pdfArrayList) {
         this.context = context;
         this.pdfArrayList = pdfArrayList;
         this.filterList=pdfArrayList;
+<<<<<<< HEAD
         //init progress dialog
         progressDialog =new ProgressDialog(context);
         progressDialog.setTitle("Hãy đợi...");
         progressDialog.setCanceledOnTouchOutside(false);
+=======
+>>>>>>> cad73f4138b18b2932d8e0b6c8609a7256712df2
     }
 
     @NonNull
@@ -86,6 +99,7 @@ public class AdapterPdfAdmin extends RecyclerView.Adapter<AdapterPdfAdmin.Holder
         loadCategory (model, holder);
         loadPdffromUrl(model, holder);
         loadPdfSize(model, holder);
+<<<<<<< HEAD
         //handle click edit delete
         holder.moreBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,6 +177,8 @@ public class AdapterPdfAdmin extends RecyclerView.Adapter<AdapterPdfAdmin.Holder
                         Toast.makeText(context, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+=======
+>>>>>>> cad73f4138b18b2932d8e0b6c8609a7256712df2
     }
 
     private void loadPdfSize(ModelPdf model, HolderPdfAdmin holder) {
@@ -213,7 +229,11 @@ public class AdapterPdfAdmin extends RecyclerView.Adapter<AdapterPdfAdmin.Holder
                                 .swipeHorizontal(false)
                                 .enableSwipe(false)
                                 .onError(new OnErrorListener() {
+<<<<<<< HEAD
                                      @Override
+=======
+                                    @Override
+>>>>>>> cad73f4138b18b2932d8e0b6c8609a7256712df2
                                     public void onError(Throwable t) {
                                         //hide progress
                                         holder.progressBar.setVisibility(View.INVISIBLE);
