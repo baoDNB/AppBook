@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Context;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appbookcase.MyApplication;
+import com.example.appbookcase.activity.PdfDetailActivity;
+import com.example.appbookcase.activity.PdfEditActivity;
 import com.example.appbookcase.databinding.RowPdfAdminBinding;
 import com.example.appbookcase.filter.FilterPdfAdmin;
 import com.example.appbookcase.model.ModelPdf;
@@ -81,8 +84,11 @@ public class AdapterPdfAdmin extends RecyclerView.Adapter<AdapterPdfAdmin.Holder
     public void onBindViewHolder(@NonNull HolderPdfAdmin holder, int position) {
         //Get data
         ModelPdf model = pdfArrayList.get(position);
+        String pdfId= model.getId();
+        String categoryId = model.getCategoryId();
         String title = model.getTitle();
         String description = model.getDescription();
+        String pdfUrl = model.getUrl();
         long timestamp = model.getTimestamp();
         // we need to convert  timestamp to dd/MM/yyyy format
         String formattedDate = MyApplication.formatTimestamp(timestamp);
@@ -91,9 +97,21 @@ public class AdapterPdfAdmin extends RecyclerView.Adapter<AdapterPdfAdmin.Holder
         holder.descriptionTv.setText(description);
         holder.dateTv.setText(formattedDate );
         // load further  details like category, pdf from url
-        loadCategory (model, holder);
-        loadPdffromUrl(model, holder);
-        loadPdfSize(model, holder);
+        MyApplication.loadCategory(
+                ""+categoryId,
+                holder.categoryTv
+        );
+        MyApplication.loadPdffromUrlSinglePage(
+                ""+pdfUrl,
+                ""+title,
+                holder.pdfView,
+                holder.progressBar
+        );
+        MyApplication.loadPdfSize(
+                ""+pdfUrl,
+                ""+title,
+                holder.sizeTv
+        );
 
         //handle click edit delete
         holder.moreBtn.setOnClickListener(new View.OnClickListener() {
@@ -102,180 +120,50 @@ public class AdapterPdfAdmin extends RecyclerView.Adapter<AdapterPdfAdmin.Holder
                 moreOptionsDialog(model,holder);
             }
         });
+        //open pdf detail
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(context, PdfDetailActivity.class);
+                intent.putExtra("bookId",pdfId);
+                context.startActivity(intent);
+            }
+        });
     }
 
     private void moreOptionsDialog(ModelPdf model, HolderPdfAdmin holder) {
+        String bookId = model.getId();
+        String bookUrl = model.getUrl();
+        String bookTitle = model.getTitle();
         String[] options ={"Edit","Delete"};
 
         AlertDialog.Builder builder= new AlertDialog.Builder(context);
-        builder.setMessage("Choose Option")
+        builder.setTitle("Choose Option")
                 .setItems(options, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //handle dialog option click
                         if (which ==0){
                             //Edit
-
+                            Intent intent = new Intent(context, PdfEditActivity.class);
+                            intent.putExtra("bookId", bookId);
+                            context.startActivity(intent);
                         } else if (which==1) {
                             //Delete
-                            deleteBook(model, holder);
-                            
-                        }
-                    }
-                }).show();
-    }
-
-    private void deleteBook(ModelPdf model, HolderPdfAdmin holder) {
-        String bookID = model.getId();
-        String bookUrl = model.getUrl();
-        String bookTitle = model.getTitle();
-
-        Log.d(TAG, "deleteBook: Xóa...");
-        progressDialog.setMessage("Đang xóa "+ bookTitle+" ...");
-
-        Log.d(TAG, "deleteBook: Đang xóa trong storage...");
-        StorageReference storageReference=FirebaseStorage.getInstance().getReferenceFromUrl(bookUrl);
-        storageReference.delete()
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Log.d(TAG, "onSuccess: Đã xóa trong storage");
-
-                        Log.d(TAG, "onSuccess: Now deleting info from db");
-                        DatabaseReference reference= FirebaseDatabase.getInstance().getReference("Books");
-                        reference.child(bookID)
-                                .removeValue()
-                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void unused) {
-                                        Log.d(TAG, "onSuccess: Deleted from db too");
-                                        progressDialog.dismiss();
-                                        Toast.makeText(context, "Book Deleted Successfully", Toast.LENGTH_SHORT).show();
-                                    }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Log.d(TAG, "onFailure: Failed to delete from db due to"+e.getMessage());
-                                        progressDialog.dismiss();
-                                        Toast.makeText(context, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                                    }
-                                });
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d(TAG, "onFailure: Failed to delete from storage due to"+e.getMessage());
-                        progressDialog.dismiss();
-                        Toast.makeText(context, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-    }
-
-    private void loadPdfSize(ModelPdf model, HolderPdfAdmin holder) {
-        String pdfUrl = model.getUrl();
-        StorageReference ref = FirebaseStorage.getInstance().getReferenceFromUrl(pdfUrl);
-        ref.getMetadata()
-                .addOnSuccessListener(new OnSuccessListener<StorageMetadata>() {
-                    @Override
-                    public void onSuccess(StorageMetadata storageMetadata) {
-                        // get size in bytes
-                        double bytes = storageMetadata.getSizeBytes();
-                        Log.d(TAG, "onSuccess: "+model.getTitle()+""+ bytes);
-
-                        //convert bytes to KB, MB
-                        double kb= bytes/1024;
-                        double mb =kb/1024;
-                        if(mb >=1){
-                            holder.sizeTv.setText(String.format("%.2f", mb)+" MB");
-                        }
-                        else if(kb >=1){
-                            holder.sizeTv.setText(String.format("%.2f", kb)+" KB");
-                        }
-                        else{
-                            holder.sizeTv.setText(String.format("%.2f", bytes)+" bytes");
+                            MyApplication.deleteBook(
+                                    context,
+                                    ""+bookId,
+                                    ""+bookUrl,
+                                    ""+bookTitle
+                            );
+                            //deleteBook(model, holder);
                         }
                     }
                 })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d(TAG, "onFailure: "+e.getMessage());
-                    }
-                });
+                .show();
     }
 
-    private void loadPdffromUrl(ModelPdf model, HolderPdfAdmin holder) {
-        String pdfUrl = model.getUrl();
-        StorageReference ref = FirebaseStorage.getInstance().getReferenceFromUrl(pdfUrl);
-        ref.getBytes(MAX_BYTES_PDF)
-                .addOnSuccessListener(new OnSuccessListener<byte[]>() {
-                    @Override
-                    public void onSuccess(byte[] bytes) {
-                        Log.d(TAG, "onSuccess: "+model.getTitle()+" successfully got the file");
 
-                        holder.pdfView.fromBytes(bytes)
-                                .pages(0)
-                                .spacing(0)
-                                .swipeHorizontal(false)
-                                .enableSwipe(false)
-                                .onError(new OnErrorListener() {
-                                    @Override
-
-                                    public void onError(Throwable t) {
-                                        //hide progress
-                                        holder.progressBar.setVisibility(View.INVISIBLE);
-                                        Log.d(TAG, "onError: "+t.getMessage());
-                                    }
-                                })
-                                .onPageError(new OnPageErrorListener() {
-                                    @Override
-                                    public void onPageError(int page, Throwable t) {
-                                        holder.progressBar.setVisibility(View.INVISIBLE);
-                                        Log.d(TAG, "onPageError: "+t.getMessage());
-                                    }
-                                })
-                                .onLoad(new OnLoadCompleteListener() {
-                                    @Override
-                                    public void loadComplete(int nbPages) {
-                                        holder.progressBar.setVisibility(View.INVISIBLE);
-                                        Log.d(TAG, "loadComplete: pdf loaded");
-                                    }
-                                })
-                                .load();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d(TAG, "onFailure: failed getting file from url due to"+e.getMessage());
-                    }
-                });
-    }
-
-    private void loadCategory(ModelPdf model, HolderPdfAdmin holder) {
-        // get category using categoryId
-        String  categoryId = model.getCategoryId();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Categories");
-        ref.child(categoryId)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        //get category
-                        String  category =""+snapshot.child("category").getValue();
-                        // set to  category text view
-                        holder.categoryTv.setText(category);
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-    }
 
     @Override
     public int getItemCount() {

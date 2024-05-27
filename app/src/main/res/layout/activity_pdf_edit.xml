@@ -10,8 +10,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size250dp"
-        >
+        android:layout_height="@dimen/size250dp">
         <ImageButton
             android:id="@+id/backBtn"
             android:layout_width="wrap_content"
@@ -39,6 +38,93 @@
             android:textSize="@dimen/size20dp"/>
 
     </RelativeLayout>
+    <ScrollView
+        android:layout_marginTop="@dimen/size225dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/titleTil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size30dp"
+                android:layout_marginEnd="@dimen/size30dp"
+                app:hintEnabled="false">
+                <EditText
+                    android:id="@+id/titleEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_edittext01"
+                    android:drawableStart="@drawable/ic_pdf_gray"
+                    android:drawablePadding="@dimen/size10dp"
+                    android:hint="Book Title"
+                    android:inputType="textPersonName|textCapSentences"
+                    android:padding="@dimen/size10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray02"
+                    android:textSize="16sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/descriptionTil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size30dp"
+                android:layout_marginEnd="@dimen/size30dp"
+                android:layout_below="@+id/titleTil"
+                android:layout_marginTop="@dimen/size10dp"
+                app:hintEnabled="false">
+                <EditText
+                    android:id="@+id/descriptionEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_edittext01"
+                    android:drawableStart="@drawable/ic_pdf_gray"
+                    android:drawablePadding="@dimen/size10dp"
+                    android:hint="Book Description"
+                    android:gravity="top"
+                    android:inputType="textPersonName|textCapSentences"
+                    android:padding="@dimen/size10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray02"
+                    android:textSize="16sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/categoryTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/descriptionTil"
+                android:layout_marginStart="@dimen/size30dp"
+                android:layout_marginEnd="@dimen/size30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_edittext01"
+                android:drawableStart="@drawable/ic_category_black"
+                android:drawableEnd="@drawable/ic_down_gray"
+                android:drawablePadding="@dimen/size10dp"
+                android:gravity="center_vertical"
+                android:hint="Book Category"
+                android:padding="@dimen/size10dp"
+                android:textColorHint="@color/gray02"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                />
+            <Button
+                android:id="@+id/submitBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/categoryTv"
+                android:layout_marginStart="@dimen/size30dp"
+                android:layout_marginEnd="@dimen/size30dp"
+                android:layout_marginTop="@dimen/size10dp"
+                android:text="Upload"
+                android:textColor="@color/white"
+                android:background="@drawable/shape_button01"/>
+        </RelativeLayout>
+
+    </ScrollView>
+
+
 
 
 </RelativeLayout>
