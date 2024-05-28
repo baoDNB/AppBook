@@ -46,8 +46,8 @@ android {
 
 
 dependencies {
-    implementation ("androidx.core:core:1.9.0")
-    implementation ("com.android.support:support-compat:1.0.0")
+    implementation ("androidx.core:core:1.13.1")
+    implementation ("com.android.support:support-compat:28.0.0")
     implementation("androidx.activity:activity:1.9.0")
 
 
@@ -59,10 +59,10 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     //firebase
 
-    implementation("com.google.firebase:firebase-auth:22.3.1")
-    implementation("com.google.firebase:firebase-analytics:21.6.2")
-    implementation("com.google.firebase:firebase-storage:20.3.0")
-    implementation("com.google.firebase:firebase-database:20.3.1")
+    implementation("com.google.firebase:firebase-auth:23.0.0")
+    implementation("com.google.firebase:firebase-analytics:22.0.0")
+    implementation("com.google.firebase:firebase-storage:21.0.0")
+    implementation("com.google.firebase:firebase-database:21.0.0")
 
     implementation ("com.github.barteksc:android-pdf-viewer:2.8.2")
 

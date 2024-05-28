@@ -63,7 +63,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@+id/searchEt"
         android:layout_margin="@dimen/size10dp"
-        android:id="@+id/bookRv"
+        android:id="@+id/booksRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

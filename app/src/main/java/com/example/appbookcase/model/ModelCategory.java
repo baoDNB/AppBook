@@ -4,7 +4,7 @@ public class ModelCategory {
     String id, category, uid;
     long timestamp;
 
-    public ModelCategory() {
+    public ModelCategory(){
 
     }
 
@@ -40,7 +40,6 @@ public class ModelCategory {
     }
 
     public long getTimestamp() {
-
         return timestamp;
     }
 

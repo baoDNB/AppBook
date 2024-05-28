@@ -95,7 +95,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 categoryArrayList.clear();
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    ModelCategory model = new ModelCategory();
+                    ModelCategory model = new ModelCategory("", "", "",1);
                     model.setId(ds.child("id").getValue(String.class));
                     model.setCategory(ds.child("category").getValue(String.class));
                     model.setUid(ds.child("uid").getValue(String.class));

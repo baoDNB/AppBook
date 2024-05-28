@@ -50,7 +50,7 @@ public class PdfListAdminActivity extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
+               }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -96,7 +96,7 @@ public class PdfListAdminActivity extends AppCompatActivity {
                         }
                         // setup adapter
                         adapterPdfAdmin = new AdapterPdfAdmin(PdfListAdminActivity.this,pdfArrayList);
-                        binding.bookRv.setAdapter(adapterPdfAdmin);
+                        binding.booksRv.setAdapter(adapterPdfAdmin);
 
                     }
 
