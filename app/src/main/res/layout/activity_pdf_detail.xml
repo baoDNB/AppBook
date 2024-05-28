@@ -11,7 +11,7 @@
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        >
+        android:background="@drawable/shape_toolbar">
         <ImageButton
             android:id="@+id/backBtn"
             android:layout_width="wrap_content"
@@ -181,13 +181,5 @@
 
         </LinearLayout>
     </ScrollView>
-    <Button
-        android:id="@id/readBookBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Read"
-        android:background="@drawable/shape_button01"/>
-
 
 </RelativeLayout>
