@@ -21,6 +21,9 @@
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activity.ProfileEditActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.ProfileActivity"
             android:exported="false" />
         <activity
