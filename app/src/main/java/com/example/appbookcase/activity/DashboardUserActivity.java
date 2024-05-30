@@ -64,6 +64,7 @@ public class DashboardUserActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 categoryArrayList.clear();
+
                 ModelCategory modelAll = new ModelCategory("01","All","",1);
                 ModelCategory modelMostViewed = new ModelCategory("02","Most Viewed","",1);
                 ModelCategory modelMostDownloaded= new ModelCategory("03","Most Downloaded","",1);
@@ -88,9 +89,24 @@ public class DashboardUserActivity extends AppCompatActivity {
                         ""+modelMostDownloaded.getUid()
                 ), modelMostDownloaded.getCategory());
                 viewPagerAdapter.notifyDataSetChanged();
+
+
                 for (DataSnapshot ds: snapshot.getChildren()){
-                    ModelCategory model = ds.getValue(ModelCategory.class);
+
+                    ModelCategory model = new ModelCategory("", "", "",1);
+                    model.setId(ds.child("id").getValue(String.class));
+                    model.setCategory(ds.child("category").getValue(String.class));
+                    model.setUid(ds.child("uid").getValue(String.class));
+                    // Kiểm tra xem giá trị là String hay Long
+                    Object timestampValue = ds.child("timestamp").getValue();
+                    if (timestampValue instanceof Long) {
+                        model.setTimestamp((Long) timestampValue);
+                    } else if (timestampValue instanceof String) {
+                        model.setTimestamp(Long.parseLong((String) timestampValue));
+                    }
+
                     categoryArrayList.add(model);
+
                     viewPagerAdapter.addFragment(BooksUserFragment.newInstance(
                             ""+model.getId(),
                             ""+model.getCategory(),

@@ -58,6 +58,7 @@ public class AdapterPdfUser extends RecyclerView.Adapter<AdapterPdfUser.HolderPd
         holder.titleTv.setText(title);
         holder.descriptionTv.setText(description);
         holder.dateTv.setText(date);
+
         MyApplication.loadPdffromUrlSinglePage(
                 ""+pdfUrl,
                 ""+title,

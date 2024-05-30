@@ -52,6 +52,7 @@
         app:tabIndicatorFullWidth="false"
         app:tabIndicatorHeight="0dp"
         app:tabMode="scrollable"
+        app:tabTextColor="@color/white"
         app:tabUnboundedRipple="false"/>
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
