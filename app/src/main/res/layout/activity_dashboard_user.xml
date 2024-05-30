@@ -11,6 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         >
+        <ImageButton
+            android:id="@+id/profileBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/size10dp"
+            android:background="@color/trong"
+            android:src="@drawable/ic_person_white"/>
         <TextView
             android:id="@+id/titleTV"
             android:layout_width="wrap_content"
