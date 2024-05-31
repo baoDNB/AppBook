@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">BookCase</string>
     <string name="email">Email</string>
-    <string name="password">Mật khẩu</string>
-    <string name="dangky">Đăng ký </string>
-    <string name="dangnhap">Đăng nhập </string>
-    <string name="ten">Tên</string>
-    <string name="cfpassword">Nhập lại mật khẩu</string>
-    <string name="forgotpass">Quên Mật Khẩu</string>
-    <string name="TKM">Tài khoản mới? <b>Đăng kí</b> </string>
+    <string name="password">Password</string>
+    <string name="dangky">Register</string>
+    <string name="dangnhap">Login </string>
+    <string name="ten">Name</string>
+    <string name="cfpassword">confirm password</string>
+    <string name="forgotpass">forgotten password</string>
+    <string name="TKM">New Account <b>Register</b> </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
