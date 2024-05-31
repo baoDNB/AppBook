@@ -12,7 +12,7 @@
     <ImageView
         android:layout_width="@dimen/size180dp"
         android:layout_height="@dimen/size180dp"
-        android:src="@drawable/google" />
+        android:src="@mipmap/ic_book_round" />
 
     <TextView
         android:layout_width="wrap_content"

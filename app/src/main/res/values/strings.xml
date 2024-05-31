@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AppBookCase</string>
+    <string name="app_name">BookCase</string>
     <string name="email">Email</string>
     <string name="password">Mật khẩu</string>
     <string name="dangky">Đăng ký </string>

@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/iconIv"
-        android:src="@drawable/google"
+        android:src="@mipmap/ic_book_round"
         android:layout_width="@dimen/size180dp"
         android:layout_height="@dimen/size180dp"
         android:layout_centerHorizontal="true"

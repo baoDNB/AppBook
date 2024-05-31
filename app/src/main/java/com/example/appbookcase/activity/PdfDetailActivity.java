@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -23,13 +24,18 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.appbookcase.MyApplication;
 import com.example.appbookcase.R;
+import com.example.appbookcase.adapter.AdapterPdfFavorite;
 import com.example.appbookcase.databinding.ActivityPdfDetailBinding;
+import com.example.appbookcase.model.ModelPdf;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.FirebaseDatabaseKtxRegistrar;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class PdfDetailActivity extends AppCompatActivity {
     private ActivityPdfDetailBinding binding;
@@ -38,6 +44,7 @@ public class PdfDetailActivity extends AppCompatActivity {
     boolean isInMyFavorite =false;
     private FirebaseAuth firebaseAuth;
     private static final  String TAG_DOWNLOAD ="DOWNLOAD_TAG";
+
 
 
     @Override
@@ -59,6 +66,7 @@ public class PdfDetailActivity extends AppCompatActivity {
         loadBookDetails();
 
         MyApplication.increamentBookViewCount(bookId);
+
 
         binding.backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +114,9 @@ public class PdfDetailActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
     private ActivityResultLauncher<String> requestPermissionLaucher=
             registerForActivityResult(new ActivityResultContracts.RequestPermission(),isGranted ->{
                 if(isGranted){
